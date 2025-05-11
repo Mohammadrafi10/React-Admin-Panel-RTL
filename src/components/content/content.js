@@ -5,15 +5,15 @@ function Content() {
   const dashboardData = [
     {
       id: 1,
-      title: "total cost",
-      description: "total cost of all sales and subscriptions this month",
+      title: "total revenue",
+      description: "total revenue of all sales and subscriptions this month",
       amount: "$45,231",
     },
     {
       id: 2,
-      title: "total revenue",
+      title: "total cost",
       description:
-        "total revenue generated from all sales and subscriptions this month",
+        "total cost generated from all sales and subscriptions this month",
       amount: "$20,400",
     },
     {
