@@ -1,4 +1,5 @@
 import DashboardBox from "../dashboardbox/dashboardBox";
+import LineChart from "../charts/linecharts/linechart";
 
 function Content() {
   const dashboardData = [
@@ -30,6 +31,14 @@ function Content() {
           {dashboardData.map((datas) => (
             <DashboardBox key={datas.id} {...datas} />
           ))}
+        </div>
+        <div className="mainchart w-full mt-8 rounded-[1.5em] border-2 border-[rgba(75,30,133,0.5)] bg-gradient-to-br from-[rgba(75,30,133,0.1)] via-purple-700/10 to-[rgba(75,30,133,0.05)] backdrop-blur-[12px]">
+          <div className="p-6">
+            <h2 className="text-2xl font-bold text-white mb-4">
+              Monthly Overview
+            </h2>
+            <LineChart />
+          </div>
         </div>
       </div>
     </>
