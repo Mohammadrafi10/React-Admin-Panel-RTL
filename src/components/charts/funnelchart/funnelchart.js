@@ -143,11 +143,33 @@ const FunnelChart = memo(() => {
           breakpoint: 480,
           options: {
             chart: {
-              height: 300,
+              height: 250,
+              toolbar: {
+                show: false,
+              },
+            },
+            plotOptions: {
+              bar: {
+                barHeight: "70%",
+                dataLabels: {
+                  position: "bottom",
+                  style: {
+                    fontSize: "10px",
+                  },
+                },
+              },
             },
             dataLabels: {
               style: {
                 fontSize: "10px",
+              },
+              offsetX: 0,
+              formatter: function (val, opt) {
+                return (
+                  opt.w.globals.labels[opt.dataPointIndex].split(" ")[0] +
+                  ": " +
+                  val
+                );
               },
             },
             xaxis: {
@@ -155,6 +177,20 @@ const FunnelChart = memo(() => {
                 style: {
                   fontSize: "10px",
                 },
+                rotate: -45,
+                rotateAlways: true,
+              },
+            },
+            yaxis: {
+              labels: {
+                style: {
+                  fontSize: "10px",
+                },
+              },
+            },
+            tooltip: {
+              style: {
+                fontSize: "12px",
               },
             },
           },

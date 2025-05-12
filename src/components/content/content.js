@@ -2,6 +2,7 @@ import DashboardBox from "../dashboardbox/dashboardBox";
 import LineChart from "../charts/linecharts/linechart";
 import AreaChart from "../charts/areacharts/areachart";
 import FunnelChart from "../charts/funnelchart/funnelchart";
+import SearchBar from "../searchbar/searchbar";
 
 function Content() {
   const dashboardData = [
@@ -59,6 +60,11 @@ function Content() {
               <FunnelChart />
             </div>
           </div>
+        </div>
+        <div className="w-full mt-8">
+          <SearchBar
+            onSearch={(params) => console.log("Search params:", params)}
+          />
         </div>
       </div>
     </>

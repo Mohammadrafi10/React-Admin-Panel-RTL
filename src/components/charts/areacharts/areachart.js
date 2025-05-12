@@ -119,11 +119,39 @@ const AreaChart = memo(() => {
           breakpoint: 480,
           options: {
             chart: {
-              height: 300,
+              height: 250,
+              toolbar: {
+                show: false,
+              },
             },
             legend: {
               position: "bottom",
               offsetY: 0,
+              height: 40,
+              itemMargin: {
+                horizontal: 10,
+                vertical: 5,
+              },
+            },
+            tooltip: {
+              enabled: true,
+              style: {
+                fontSize: "12px",
+              },
+            },
+            xaxis: {
+              labels: {
+                style: {
+                  fontSize: "10px",
+                },
+              },
+            },
+            yaxis: {
+              labels: {
+                style: {
+                  fontSize: "10px",
+                },
+              },
             },
           },
         },
