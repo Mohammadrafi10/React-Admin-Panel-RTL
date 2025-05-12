@@ -9,7 +9,6 @@ function Home() {
   function sidebarHandler() {
     setIsOpen(!isOpen);
   }
-
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="flex">
