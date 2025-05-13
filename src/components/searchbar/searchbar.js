@@ -23,7 +23,7 @@ const SearchBar = ({ onSearch }) => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search anything..."
-            className="w-full px-4 py-3 pl-10 text-sm text-white bg-white/10 border border-[rgba(75,30,133,0.3)] rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200 placeholder-gray-400"
+            className="w-full px-4 py-3 pl-10 text-sm text-black bg-purple-200 border border-[rgba(75,30,133,0.3)] rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200 placeholder-gray-400"
           />
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
@@ -48,7 +48,7 @@ const SearchBar = ({ onSearch }) => {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-4 py-3 text-sm text-white bg-white/10 border border-[rgba(75,30,133,0.3)] rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200 appearance-none"
+            className="w-full px-4 py-3 text-sm text-black bg-purple-200 border border-[rgba(75,30,133,0.3)] rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200 appearance-none"
           >
             <option value="all">All Categories</option>
             <option value="products">Products</option>
@@ -79,7 +79,7 @@ const SearchBar = ({ onSearch }) => {
           <select
             value={dateRange}
             onChange={(e) => setDateRange(e.target.value)}
-            className="w-full px-4 py-3 text-sm text-white bg-white/10 border border-[rgba(75,30,133,0.3)] rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200 appearance-none"
+            className="w-full px-4 py-3 text-sm text-black bg-purple-200 border border-[rgba(75,30,133,0.3)] rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200 appearance-none"
           >
             <option value="all">All Time</option>
             <option value="today">Today</option>
