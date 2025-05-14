@@ -3,6 +3,7 @@ import LineChart from "../charts/linecharts/linechart";
 import AreaChart from "../charts/areacharts/areachart";
 import FunnelChart from "../charts/funnelchart/funnelchart";
 import SearchBar from "../searchbar/searchbar";
+import Table from "../tables/table";
 
 function Content() {
   const dashboardData = [
@@ -25,6 +26,18 @@ function Content() {
       description:
         "total profit generated from all sales and subscriptions this month",
       amount: "$24,831",
+    },
+  ];
+  const tableData = [
+    {
+      id: 1,
+      name: "jacket",
+      type: "blue",
+    },
+    {
+      id: 2,
+      name: "bluse",
+      type: "green",
     },
   ];
   return (
@@ -61,10 +74,14 @@ function Content() {
             </div>
           </div>
         </div>
+        {/* search bar */}
         <div className="w-full mt-8">
           <SearchBar
             onSearch={(params) => console.log("Search params:", params)}
           />
+        </div>
+        <div className="w-full mt-8">
+          <Table data={tableData} />
         </div>
       </div>
     </>
