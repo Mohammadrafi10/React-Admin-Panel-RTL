@@ -8,6 +8,7 @@ import {
   RiSettings4Line,
   RiArrowDownSLine,
 } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 function SideBar({ isOpen }) {
   let [subMenuOpen, setSubMenuOpen] = useState(false);
@@ -35,6 +36,61 @@ function SideBar({ isOpen }) {
       </div>
 
       <nav className="space-y-1">
+        <Link
+          to="/"
+          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
+        >
+          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+          <RiHome4Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
+          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
+            Home
+          </span>
+        </Link>
+
+        <Link
+          to="/products"
+          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
+        >
+          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+          <RiShoppingBag3Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
+          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
+            Products
+          </span>
+        </Link>
+
+        <Link
+          to="/orders"
+          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
+        >
+          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+          <RiFileList3Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
+          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
+            Orders
+          </span>
+        </Link>
+
+        <Link
+          to="/messages"
+          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
+        >
+          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+          <RiMessage2Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
+          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
+            Messages
+          </span>
+        </Link>
+
+        <Link
+          to="/notifications"
+          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
+        >
+          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+          <RiNotification3Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
+          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
+            Notifications
+          </span>
+        </Link>
+
         <div className="relative">
           <button
             onClick={toggleSubMenu}
@@ -42,9 +98,9 @@ function SideBar({ isOpen }) {
           >
             <div className="flex items-center">
               <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
-              <RiHome4Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
+              <RiSettings4Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
               <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
-                Home
+                Settings
               </span>
             </div>
             <RiArrowDownSLine
@@ -60,82 +116,27 @@ function SideBar({ isOpen }) {
             }`}
           >
             <div className="pl-12 space-y-1 mt-1">
-              <a
-                href="#"
+              <Link
+                to="/lists"
                 className="block px-4 py-2 text-sm text-gray-600 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition-all duration-300"
               >
                 Lists
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/orders"
                 className="block px-4 py-2 text-sm text-gray-600 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition-all duration-300"
               >
                 Orders
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/chats"
                 className="block px-4 py-2 text-sm text-gray-600 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition-all duration-300"
               >
                 Chats
-              </a>
+              </Link>
             </div>
           </div>
         </div>
-
-        <a
-          href="#"
-          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
-        >
-          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
-          <RiShoppingBag3Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
-          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
-            Products
-          </span>
-        </a>
-
-        <a
-          href="#"
-          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
-        >
-          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
-          <RiFileList3Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
-          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
-            Orders
-          </span>
-        </a>
-
-        <a
-          href="#"
-          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
-        >
-          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
-          <RiMessage2Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
-          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
-            Messages
-          </span>
-        </a>
-
-        <a
-          href="#"
-          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
-        >
-          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
-          <RiNotification3Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
-          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
-            Notifications
-          </span>
-        </a>
-
-        <a
-          href="#"
-          className="flex items-center px-4 py-3.5 text-gray-600 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all duration-300 group relative overflow-hidden"
-        >
-          <div className="absolute left-0 top-0 w-1 h-full bg-purple-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
-          <RiSettings4Line className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
-          <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">
-            Settings
-          </span>
-        </a>
       </nav>
     </div>
   );
