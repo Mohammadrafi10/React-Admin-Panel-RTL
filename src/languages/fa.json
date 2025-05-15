@@ -17,5 +17,109 @@
     "may": "مه",
     "jun": "ژوئن",
     "jul": "جولای"
+  },
+  "navigation": {
+    "dashboard": "داشبورد",
+    "products": "محصولات",
+    "orders": "سفارشات",
+    "customers": "مشتریان",
+    "reports": "گزارشات",
+    "settings": "تنظیمات"
+  },
+  "sidebar": {
+    "main_menu": "منوی اصلی",
+    "dashboard": "داشبورد",
+    "analytics": "تحلیل‌ها",
+    "products": {
+      "title": "محصولات",
+      "all_products": "همه محصولات",
+      "add_product": "افزودن محصول",
+      "categories": "دسته‌بندی‌ها"
+    },
+    "orders": {
+      "title": "سفارشات",
+      "all_orders": "همه سفارشات",
+      "pending_orders": "سفارشات در انتظار",
+      "completed_orders": "سفارشات تکمیل شده"
+    },
+    "customers": {
+      "title": "مشتریان",
+      "all_customers": "همه مشتریان",
+      "add_customer": "افزودن مشتری",
+      "customer_groups": "گروه‌های مشتری"
+    },
+    "marketing": {
+      "title": "بازاریابی",
+      "campaigns": "کمپین‌ها",
+      "promotions": "تخفیف‌ها",
+      "newsletter": "خبرنامه"
+    },
+    "reports": {
+      "title": "گزارشات",
+      "sales_report": "گزارش فروش",
+      "inventory_report": "گزارش موجودی",
+      "customer_report": "گزارش مشتریان"
+    },
+    "settings": {
+      "title": "تنظیمات",
+      "general": "عمومی",
+      "appearance": "ظاهر",
+      "security": "امنیت",
+      "notifications": "اعلان‌ها",
+      "language": "زبان"
+    },
+    "user": {
+      "profile": "پروفایل",
+      "logout": "خروج"
+    },
+    "collapse": "بستن منو",
+    "expand": "باز کردن منو"
+  },
+  "buttons": {
+    "save": "ذخیره",
+    "cancel": "انصراف",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "add": "افزودن",
+    "search": "جستجو",
+    "filter": "فیلتر",
+    "export": "خروجی",
+    "import": "ورودی",
+    "submit": "ثبت",
+    "reset": "بازنشانی"
+  },
+  "table": {
+    "actions": "عملیات",
+    "status": "وضعیت",
+    "date": "تاریخ",
+    "price": "قیمت",
+    "quantity": "تعداد",
+    "total": "جمع کل",
+    "no_data": "اطلاعاتی موجود نیست",
+    "loading": "در حال بارگذاری..."
+  },
+  "status": {
+    "active": "فعال",
+    "inactive": "غیرفعال",
+    "pending": "در انتظار",
+    "completed": "تکمیل شده",
+    "cancelled": "لغو شده"
+  },
+  "form": {
+    "name": "نام",
+    "email": "ایمیل",
+    "phone": "تلفن",
+    "address": "آدرس",
+    "description": "توضیحات",
+    "password": "رمز عبور",
+    "confirm_password": "تکرار رمز عبور"
+  },
+  "messages": {
+    "success": "عملیات با موفقیت انجام شد",
+    "error": "خطا در انجام عملیات",
+    "confirm_delete": "آیا از حذف این مورد اطمینان دارید؟",
+    "required_field": "این فیلد الزامی است",
+    "invalid_email": "ایمیل نامعتبر است",
+    "invalid_phone": "شماره تلفن نامعتبر است"
   }
 }
