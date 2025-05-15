@@ -4,6 +4,9 @@ import AreaChart from "../charts/areacharts/areachart";
 import FunnelChart from "../charts/funnelchart/funnelchart";
 import SearchBar from "../searchbar/searchbar";
 import Table from "../tables/table";
+// Import images
+import img1 from "../../assets/images/1.jpg";
+import img2 from "../../assets/images/2.jpg";
 
 function Content() {
   const dashboardData = [
@@ -31,13 +34,45 @@ function Content() {
   const tableData = [
     {
       id: 1,
-      name: "jacket",
-      type: "blue",
+      name: "Jacket",
+      type: "Blue",
+      img: img1,
+      information: "Premium quality denim jacket with modern design",
     },
     {
       id: 2,
-      name: "bluse",
-      type: "green",
+      name: "Blouse",
+      type: "Black",
+      img: img2,
+      information: "Elegant silk blouse with pearl buttons",
+    },
+    {
+      id: 3,
+      name: "Dress",
+      type: "Red",
+      img: img1,
+      information: "Summer floral dress with adjustable straps",
+    },
+    {
+      id: 4,
+      name: "Pants",
+      type: "Gray",
+      img: img2,
+      information: "Comfortable cotton pants with elastic waist",
+    },
+    {
+      id: 5,
+      name: "Skirt",
+      type: "Green",
+      img: img1,
+      information: "Pleated midi skirt with side pockets",
+    },
+    {
+      id: 6,
+      name: "Sweater",
+      type: "White",
+      img: img2,
+      information: "Knit sweater with ribbed cuffs and collar",
     },
   ];
   return (
