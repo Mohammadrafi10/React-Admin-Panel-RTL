@@ -1,8 +1,6 @@
 import { useState } from "react";
 import {
   RiHome4Line,
-  RiFileList3Line,
-  RiSettings4Line,
   RiArrowDownSLine,
   RiPagesLine,
   RiApps2Line,
@@ -47,7 +45,7 @@ function SideBar({ isOpen }) {
           </svg>
         </div>
         <span className="font-bold text-lg text-gray-800 tracking-wide">
-          Soft UI Dashboard PRO
+          SR dashboard
         </span>
       </div>
 
@@ -79,7 +77,7 @@ function SideBar({ isOpen }) {
                 }`}
               />
             </div>
-            <span className="font-medium">Dashboards</span>
+            <span className="font-medium">Dashboard</span>
             <RiArrowDownSLine
               className={`ml-auto text-lg transition-transform duration-300 ${
                 openMenus.dashboards ? "rotate-180" : ""
@@ -266,7 +264,7 @@ function SideBar({ isOpen }) {
             }`}
           >
             <Link
-              to="/auth/login"
+              to="/login"
               className="block px-4 py-2 text-sm text-gray-600 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition-all duration-300"
             >
               Login
