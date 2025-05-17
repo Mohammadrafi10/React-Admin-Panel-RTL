@@ -1,194 +1,129 @@
 import React from "react";
-import ReactApexChart from "react-apexcharts";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
 
 function LineChart() {
-  const options = {
-    chart: {
-      type: "line",
-      toolbar: {
-        show: false,
-      },
-      background: "transparent",
-      animations: {
-        enabled: true,
-        easing: "easeinout",
-        speed: 800,
-        animateGradually: {
-          enabled: true,
-          delay: 150,
-        },
-        dynamicAnimation: {
-          enabled: true,
-          speed: 350,
-        },
-      },
-    },
-    theme: {
-      mode: "dark",
-    },
-    stroke: {
-      curve: "smooth",
-      width: [3, 3, 3],
-      lineCap: "round",
-    },
-    grid: {
-      borderColor: "rgba(255, 255, 255, 0.1)",
-      strokeDashArray: 4,
-      xaxis: {
-        lines: {
-          show: true,
-        },
-      },
-      yaxis: {
-        lines: {
-          show: true,
-        },
-      },
-      padding: {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-      },
-    },
-    xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-      labels: {
-        style: {
-          colors: "rgba(255, 255, 255, 0.7)",
-          fontSize: "12px",
-        },
-        rotate: -45,
-        rotateAlways: false,
-      },
-      axisBorder: {
-        show: false,
-      },
-      axisTicks: {
-        show: false,
-      },
-    },
-    yaxis: {
-      labels: {
-        style: {
-          colors: "rgba(255, 255, 255, 0.7)",
-          fontSize: "12px",
-        },
-        formatter: function (value) {
-          return "$" + value.toLocaleString();
-        },
-      },
-      axisBorder: {
-        show: false,
-      },
-      axisTicks: {
-        show: false,
-      },
-    },
-    tooltip: {
-      theme: "dark",
-      x: {
-        format: "MMM",
-      },
-      y: {
-        formatter: function (value) {
-          return "$" + value.toLocaleString();
-        },
-      },
-    },
-    colors: ["#4B1E85", "#10B981", "#F59E0B"],
-    legend: {
-      position: "top",
-      horizontalAlign: "right",
-      labels: {
-        colors: "rgba(255, 255, 255, 0.7)",
-      },
-      markers: {
-        width: 12,
-        height: 12,
-        strokeWidth: 0,
-        strokeColor: "#fff",
-        radius: 12,
-        offsetX: 0,
-        offsetY: 0,
-      },
-      itemMargin: {
-        horizontal: 10,
-        vertical: 5,
-      },
-    },
-    responsive: [
+  const data = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    datasets: [
       {
-        breakpoint: 1024,
-        options: {
-          chart: {
-            height: 300,
-          },
-          legend: {
-            position: "bottom",
-          },
-        },
+        label: "Revenue",
+        data: [31000, 40000, 35000, 50000, 49000, 60000, 70000],
+        borderColor: "#4B1E85",
+        backgroundColor: "rgba(75, 30, 133, 0.1)",
+        tension: 0.4,
+        borderWidth: 3,
       },
       {
-        breakpoint: 768,
-        options: {
-          chart: {
-            height: 250,
-          },
-          legend: {
-            position: "bottom",
-            offsetY: 0,
-          },
-          xaxis: {
-            labels: {
-              rotate: -45,
-            },
-          },
-        },
+        label: "Cost",
+        data: [20000, 25000, 22000, 30000, 28000, 35000, 40000],
+        borderColor: "#10B981",
+        backgroundColor: "rgba(16, 185, 129, 0.1)",
+        tension: 0.4,
+        borderWidth: 3,
       },
       {
-        breakpoint: 480,
-        options: {
-          chart: {
-            height: 200,
-          },
-          legend: {
-            position: "bottom",
-            offsetY: 0,
-          },
-          xaxis: {
-            labels: {
-              rotate: -45,
-            },
-          },
-        },
+        label: "Profit",
+        data: [11000, 15000, 13000, 20000, 21000, 25000, 30000],
+        borderColor: "#F59E0B",
+        backgroundColor: "rgba(245, 158, 11, 0.1)",
+        tension: 0.4,
+        borderWidth: 3,
       },
     ],
   };
 
-  const series = [
-    {
-      name: "Revenue",
-      data: [31000, 40000, 35000, 50000, 49000, 60000, 70000],
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+        align: "end",
+        labels: {
+          color: "rgba(255, 255, 255, 0.7)",
+          usePointStyle: true,
+          padding: 20,
+          boxWidth: 12,
+          boxHeight: 12,
+        },
+      },
+      tooltip: {
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        titleColor: "#fff",
+        bodyColor: "#fff",
+        borderColor: "rgba(255, 255, 255, 0.1)",
+        borderWidth: 1,
+        callbacks: {
+          label: function (context) {
+            return `${context.dataset.label}: $${context.raw.toLocaleString()}`;
+          },
+        },
+      },
     },
-    {
-      name: "Cost",
-      data: [20000, 25000, 22000, 30000, 28000, 35000, 40000],
+    scales: {
+      x: {
+        grid: {
+          color: "rgba(255, 255, 255, 0.1)",
+          borderDash: [4, 4],
+        },
+        ticks: {
+          color: "rgba(255, 255, 255, 0.7)",
+          maxRotation: -45,
+          minRotation: -45,
+        },
+        border: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          color: "rgba(255, 255, 255, 0.1)",
+          borderDash: [4, 4],
+        },
+        ticks: {
+          color: "rgba(255, 255, 255, 0.7)",
+          callback: function (value) {
+            return "$" + value.toLocaleString();
+          },
+        },
+        border: {
+          display: false,
+        },
+      },
     },
-    {
-      name: "Profit",
-      data: [11000, 15000, 13000, 20000, 21000, 25000, 30000],
+    interaction: {
+      mode: "nearest",
+      axis: "x",
+      intersect: false,
     },
-  ];
+  };
 
   return (
     <div className="w-full h-[400px] md:h-[350px] sm:h-[300px] p-4">
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="line"
-        height="100%"
-      />
+      <Line data={data} options={options} />
     </div>
   );
 }

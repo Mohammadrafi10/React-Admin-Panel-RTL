@@ -1,214 +1,110 @@
-import React, { memo, useMemo } from "react";
-import ReactApexChart from "react-apexcharts";
+import React, { memo } from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
 import ChartWrapper from "../ChartWrapper";
 
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 const FunnelChart = memo(() => {
-  const series = useMemo(
-    () => [
+  const data = {
+    labels: [
+      "Website Visit",
+      "Downloads",
+      "Sign Up",
+      "Add to Cart",
+      "Checkout",
+      "Payment",
+      "Confirmation",
+      "Purchase",
+    ],
+    datasets: [
       {
-        name: "Conversion Rate",
+        label: "Conversion Rate",
         data: [1380, 1100, 990, 880, 740, 548, 330, 200],
+        backgroundColor: [
+          "#4B1E85",
+          "#5B2B9E",
+          "#6B38B7",
+          "#7B45D0",
+          "#8B52E9",
+          "#9B5FF2",
+          "#AB6CFB",
+          "#BB79FF",
+        ],
       },
     ],
-    []
-  );
+  };
 
-  const options = useMemo(
-    () => ({
-      chart: {
-        type: "bar",
-        height: 350,
-        toolbar: {
-          show: false,
-        },
-        background: "transparent",
-        animations: {
-          enabled: false,
-        },
-        zoom: {
-          enabled: false,
-        },
-        events: {
-          mounted: (chart) => {
-            chart.windowResizeHandler();
-          },
-        },
-        parentHeightOffset: 0,
-        redrawOnWindowResize: false,
-        redrawOnParentResize: false,
-        selection: {
-          enabled: false,
-        },
-        brush: {
-          enabled: false,
-        },
-      },
-      plotOptions: {
-        bar: {
-          borderRadius: 0,
-          horizontal: true,
-          distributed: true,
-          barHeight: "80%",
-          dataLabels: {
-            position: "bottom",
-          },
-        },
-      },
-      colors: [
-        "#4B1E85",
-        "#5B2B9E",
-        "#6B38B7",
-        "#7B45D0",
-        "#8B52E9",
-        "#9B5FF2",
-        "#AB6CFB",
-        "#BB79FF",
-      ],
-      dataLabels: {
-        enabled: true,
-        textAnchor: "start",
-        style: {
-          colors: ["#fff"],
-          fontSize: "12px",
-        },
-        formatter: function (val, opt) {
-          return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val;
-        },
-        offsetX: 0,
-        dropShadow: {
-          enabled: false,
-        },
-      },
-      xaxis: {
-        categories: [
-          "Website Visit",
-          "Downloads",
-          "Sign Up",
-          "Add to Cart",
-          "Checkout",
-          "Payment",
-          "Confirmation",
-          "Purchase",
-        ],
-        labels: {
-          style: {
-            colors: "#fff",
-          },
-        },
-        axisBorder: {
-          show: false,
-        },
-        axisTicks: {
-          show: false,
-        },
-      },
-      yaxis: {
-        labels: {
-          style: {
-            colors: "#fff",
-          },
-        },
-        axisBorder: {
-          show: false,
-        },
-        axisTicks: {
-          show: false,
-        },
+  const options = {
+    indexAxis: "y",
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
       },
       tooltip: {
-        theme: "dark",
-        x: {
-          show: false,
-        },
-        enabled: true,
-        shared: true,
-        intersect: false,
-      },
-      grid: {
-        borderColor: "rgba(75,30,133,0.2)",
-        strokeDashArray: 4,
-        xaxis: {
-          lines: {
-            show: false,
-          },
-        },
-        yaxis: {
-          lines: {
-            show: true,
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        titleColor: "#fff",
+        bodyColor: "#fff",
+        borderColor: "rgba(75, 30, 133, 0.2)",
+        borderWidth: 1,
+        callbacks: {
+          label: function (context) {
+            return `${context.dataset.label}: ${context.raw}`;
           },
         },
       },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              height: 250,
-              toolbar: {
-                show: false,
-              },
-            },
-            plotOptions: {
-              bar: {
-                barHeight: "70%",
-                dataLabels: {
-                  position: "bottom",
-                  style: {
-                    fontSize: "10px",
-                  },
-                },
-              },
-            },
-            dataLabels: {
-              style: {
-                fontSize: "10px",
-              },
-              offsetX: 0,
-              formatter: function (val, opt) {
-                return (
-                  opt.w.globals.labels[opt.dataPointIndex].split(" ")[0] +
-                  ": " +
-                  val
-                );
-              },
-            },
-            xaxis: {
-              labels: {
-                style: {
-                  fontSize: "10px",
-                },
-                rotate: -45,
-                rotateAlways: true,
-              },
-            },
-            yaxis: {
-              labels: {
-                style: {
-                  fontSize: "10px",
-                },
-              },
-            },
-            tooltip: {
-              style: {
-                fontSize: "12px",
-              },
-            },
-          },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
         },
-      ],
-    }),
-    []
-  );
+        ticks: {
+          color: "#fff",
+        },
+        border: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          color: "rgba(75, 30, 133, 0.2)",
+          borderDash: [4, 4],
+        },
+        ticks: {
+          color: "#fff",
+        },
+        border: {
+          display: false,
+        },
+      },
+    },
+    barPercentage: 0.8,
+    categoryPercentage: 1,
+  };
 
   return (
     <ChartWrapper>
       <div className="w-full h-[350px]">
-        <ReactApexChart
-          options={options}
-          series={series}
-          type="bar"
-          height="100%"
-        />
+        <Bar data={data} options={options} />
       </div>
     </ChartWrapper>
   );

@@ -1,174 +1,111 @@
-import React, { memo, useMemo } from "react";
-import ReactApexChart from "react-apexcharts";
+import React, { memo } from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 import ChartWrapper from "../ChartWrapper";
 
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
+
 const AreaChart = memo(() => {
-  const series = useMemo(
-    () => [
+  const data = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    datasets: [
       {
-        name: "Sales",
+        label: "Sales",
         data: [31, 40, 28, 51, 42, 109, 100],
+        borderColor: "#4B1E85",
+        backgroundColor: "rgba(75, 30, 133, 0.3)",
+        fill: true,
+        tension: 0.4,
       },
       {
-        name: "Revenue",
+        label: "Revenue",
         data: [11, 32, 45, 32, 34, 52, 41],
+        borderColor: "#9333EA",
+        backgroundColor: "rgba(147, 51, 234, 0.3)",
+        fill: true,
+        tension: 0.4,
       },
     ],
-    []
-  );
+  };
 
-  const options = useMemo(
-    () => ({
-      chart: {
-        height: 350,
-        type: "area",
-        toolbar: {
-          show: false,
-        },
-        background: "transparent",
-        animations: {
-          enabled: false,
-        },
-        zoom: {
-          enabled: false,
-        },
-        events: {
-          mounted: (chart) => {
-            chart.windowResizeHandler();
-          },
-        },
-        parentHeightOffset: 0,
-        redrawOnWindowResize: false,
-        redrawOnParentResize: false,
-        selection: {
-          enabled: false,
-        },
-        brush: {
-          enabled: false,
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: "smooth",
-        width: 2,
-      },
-      xaxis: {
-        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
         labels: {
-          style: {
-            colors: "#fff",
-          },
-        },
-        axisBorder: {
-          show: false,
-        },
-        axisTicks: {
-          show: false,
-        },
-      },
-      yaxis: {
-        labels: {
-          style: {
-            colors: "#fff",
-          },
-        },
-        axisBorder: {
-          show: false,
-        },
-        axisTicks: {
-          show: false,
+          color: "#fff",
+          usePointStyle: true,
+          padding: 20,
         },
       },
       tooltip: {
-        theme: "dark",
-        x: {
-          show: false,
-        },
-        enabled: true,
-        shared: true,
+        mode: "index",
         intersect: false,
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        titleColor: "#fff",
+        bodyColor: "#fff",
+        borderColor: "rgba(75, 30, 133, 0.2)",
+        borderWidth: 1,
       },
-      fill: {
-        type: "gradient",
-        gradient: {
-          shadeIntensity: 1,
-          opacityFrom: 0.7,
-          opacityTo: 0.3,
-          stops: [0, 90, 100],
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
         },
-      },
-      colors: ["#4B1E85", "#9333EA"],
-      grid: {
-        borderColor: "rgba(75,30,133,0.2)",
-        strokeDashArray: 4,
-        xaxis: {
-          lines: {
-            show: false,
-          },
+        ticks: {
+          color: "#fff",
         },
-        yaxis: {
-          lines: {
-            show: true,
-          },
+        border: {
+          display: false,
         },
       },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              height: 250,
-              toolbar: {
-                show: false,
-              },
-            },
-            legend: {
-              position: "bottom",
-              offsetY: 0,
-              height: 40,
-              itemMargin: {
-                horizontal: 10,
-                vertical: 5,
-              },
-            },
-            tooltip: {
-              enabled: true,
-              style: {
-                fontSize: "12px",
-              },
-            },
-            xaxis: {
-              labels: {
-                style: {
-                  fontSize: "10px",
-                },
-              },
-            },
-            yaxis: {
-              labels: {
-                style: {
-                  fontSize: "10px",
-                },
-              },
-            },
-          },
+      y: {
+        grid: {
+          color: "rgba(75, 30, 133, 0.2)",
+          borderDash: [4, 4],
         },
-      ],
-    }),
-    []
-  );
+        ticks: {
+          color: "#fff",
+        },
+        border: {
+          display: false,
+        },
+      },
+    },
+    interaction: {
+      mode: "nearest",
+      axis: "x",
+      intersect: false,
+    },
+  };
 
   return (
     <ChartWrapper>
       <div className="w-full h-[350px]">
-        <ReactApexChart
-          options={options}
-          series={series}
-          type="area"
-          height="100%"
-        />
+        <Line data={data} options={options} />
       </div>
     </ChartWrapper>
   );
