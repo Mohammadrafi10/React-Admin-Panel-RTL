@@ -102,7 +102,7 @@ const FunnelChart = memo(() => {
   };
 
   return (
-    <ChartWrapper>
+    <ChartWrapper className="w-full h-full">
       <div className="w-full h-[350px]">
         <Bar data={data} options={options} />
       </div>

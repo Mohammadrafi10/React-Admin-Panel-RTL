@@ -1,32 +1,20 @@
-import React, { memo, useEffect } from "react";
+import React from "react";
 import useTouchEvents from "../../hooks/useTouchEvents";
 
-const ChartWrapper = memo(({ children }) => {
-  const chartRef = useTouchEvents();
-
-  useEffect(() => {
-    // Force a repaint to ensure proper rendering
-    const chartElement = chartRef.current;
-    if (chartElement) {
-      chartElement.style.transform = "translateZ(0)";
-    }
-  }, []);
+const ChartWrapper = ({ children, className = "" }) => {
+  const { handleTouchStart, handleTouchMove, handleTouchEnd } =
+    useTouchEvents();
 
   return (
     <div
-      ref={chartRef}
-      className="chart-wrapper"
-      style={{
-        willChange: "transform",
-        touchAction: "none",
-        WebkitOverflowScrolling: "touch",
-      }}
+      className={`relative ${className}`}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       {children}
     </div>
   );
-});
-
-ChartWrapper.displayName = "ChartWrapper";
+};
 
 export default ChartWrapper;

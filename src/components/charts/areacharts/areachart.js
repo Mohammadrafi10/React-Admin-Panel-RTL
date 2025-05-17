@@ -103,7 +103,7 @@ const AreaChart = memo(() => {
   };
 
   return (
-    <ChartWrapper>
+    <ChartWrapper className="w-full h-full">
       <div className="w-full h-[350px]">
         <Line data={data} options={options} />
       </div>
