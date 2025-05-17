@@ -159,7 +159,7 @@ function SideBar({ isOpen }) {
             }`}
           >
             <Link
-              to="/pages/profile"
+              to="/profile"
               className="block px-4 py-2 text-sm text-gray-600 rounded-lg hover:bg-purple-50 hover:text-purple-600 transition-all duration-300"
             >
               Profile
