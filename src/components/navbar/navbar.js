@@ -77,7 +77,7 @@ function Navbar({ sidebarHandler, isOpen }) {
 
   return (
     <nav
-      className={`fixed top-0 right-0 h-16 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 shadow-lg z-50 transition-all duration-300 ${
+      className={`fixed top-0 right-0 h-16 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] backdrop-blur-sm z-50 transition-all duration-300 ${
         isOpen ? "w-[calc(100%-16rem)]" : "w-full"
       }`}
     >
@@ -86,7 +86,7 @@ function Navbar({ sidebarHandler, isOpen }) {
         <div className="flex items-center space-x-2">
           <button
             onClick={sidebarHandler}
-            className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
+            className="text-white p-2 hover:bg-white/20 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-purple-500/20"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ function Navbar({ sidebarHandler, isOpen }) {
               />
             </svg>
           </button>
-          <div className="text-white font-bold text-xl hidden sm:block">
+          <div className="text-white font-bold text-xl hidden sm:block bg-gradient-to-r from-purple-500/30 to-pink-500/30 px-4 py-1 rounded-lg backdrop-blur-sm border border-white/10 shadow-lg">
             Logo
           </div>
         </div>
@@ -118,7 +118,7 @@ function Navbar({ sidebarHandler, isOpen }) {
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full px-4 py-2 rounded-lg bg-white/15 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-purple-500/50 backdrop-blur-sm transition-all duration-200 hover:bg-white/20 border border-white/10 shadow-lg"
               />
             </div>
 
@@ -127,7 +127,7 @@ function Navbar({ sidebarHandler, isOpen }) {
               {/* Search Toggle for Mobile */}
               <button
                 onClick={() => setShowSearch(!showSearch)}
-                className="md:hidden text-white hover:text-white/80 transition-colors hover:bg-white/10 p-2 rounded-full"
+                className="md:hidden text-white hover:text-white/80 transition-all duration-200 hover:bg-white/20 p-2 rounded-full hover:scale-110 active:scale-95 hover:shadow-lg hover:shadow-purple-500/20"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -145,18 +145,18 @@ function Navbar({ sidebarHandler, isOpen }) {
                 </svg>
               </button>
 
-              <button className="text-white hover:text-white/80 transition-colors hover:bg-white/10 p-2 rounded-full">
+              <button className="text-white hover:text-white/80 transition-all duration-200 hover:bg-white/20 p-2 rounded-full hover:scale-110 active:scale-95 hover:shadow-lg hover:shadow-purple-500/20">
                 <GiWorld className="w-5 h-5" />
               </button>
-              <button className="text-white hover:text-white/80 transition-colors hover:bg-white/10 p-2 rounded-full">
+              <button className="text-white hover:text-white/80 transition-all duration-200 hover:bg-white/20 p-2 rounded-full hover:scale-110 active:scale-95 hover:shadow-lg hover:shadow-purple-500/20">
                 <RiMessage2Fill className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNotificationClick}
-                className="text-white hover:text-white/80 transition-colors hover:bg-white/10 p-2 rounded-full relative"
+                className="text-white hover:text-white/80 transition-all duration-200 hover:bg-white/20 p-2 rounded-full hover:scale-110 active:scale-95 hover:shadow-lg hover:shadow-purple-500/20 relative"
               >
                 <IoNotificationsCircle className="w-5 h-5" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-red-500 to-pink-500 rounded-full text-xs text-white flex items-center justify-center animate-pulse shadow-lg shadow-red-500/30">
                   3
                 </span>
               </button>
@@ -239,7 +239,7 @@ function Navbar({ sidebarHandler, isOpen }) {
                   View All Notifications
                 </MenuItem>
               </Menu>
-              <button className="text-white hover:text-white/80 transition-colors hover:bg-white/10 p-2 rounded-full">
+              <button className="text-white hover:text-white/80 transition-all duration-200 hover:bg-white/20 p-2 rounded-full hover:scale-110 active:scale-95 hover:shadow-lg hover:shadow-purple-500/20">
                 <CgDarkMode className="w-5 h-5" />
               </button>
             </div>
@@ -251,9 +251,9 @@ function Navbar({ sidebarHandler, isOpen }) {
           <div className="relative group">
             <button
               onClick={handleProfileClick}
-              className="flex items-center space-x-2 text-white hover:bg-white/10 p-2 rounded-lg"
+              className="flex items-center space-x-2 text-white hover:bg-white/20 p-2 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-purple-500/20"
             >
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 flex items-center justify-center backdrop-blur-sm ring-2 ring-white/30 shadow-lg">
                 <span className="text-sm font-medium">JD</span>
               </div>
               <span className="text-sm hidden md:block">John Doe</span>
