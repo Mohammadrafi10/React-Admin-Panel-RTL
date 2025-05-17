@@ -15,6 +15,7 @@ function Content() {
       title: "total revenue",
       description: "total revenue of all sales and subscriptions this month",
       amount: "$45,231",
+      percent: "+12%",
     },
     {
       id: 2,
@@ -22,6 +23,7 @@ function Content() {
       description:
         "total cost generated from all sales and subscriptions this month",
       amount: "$20,400",
+      percent: "-5%",
     },
     {
       id: 3,
@@ -29,6 +31,35 @@ function Content() {
       description:
         "total profit generated from all sales and subscriptions this month",
       amount: "$24,831",
+      percent: "+8%",
+    },
+    {
+      id: 4,
+      title: "new users",
+      description: "users who signed up this month",
+      amount: "1,200",
+      percent: "+22%",
+    },
+    {
+      id: 5,
+      title: "active subscriptions",
+      description: "currently active paid subscriptions",
+      amount: "3,450",
+      percent: "+3%",
+    },
+    {
+      id: 6,
+      title: "pending orders",
+      description: "orders awaiting fulfillment",
+      amount: "87",
+      percent: "-2%",
+    },
+    {
+      id: 7,
+      title: "refund requests",
+      description: "refund requests received this month",
+      amount: "15",
+      percent: "+1%",
     },
   ];
   const tableData = [
@@ -78,7 +109,7 @@ function Content() {
   return (
     <>
       <div className="mainContent w-full px-6 py-8">
-        <div className="mainContent-box grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="mainContent-box grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3 lg:gap-4">
           {dashboardData.map((datas) => (
             <DashboardBox key={datas.id} {...datas} />
           ))}
